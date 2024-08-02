@@ -1,0 +1,10 @@
+{{ define "main" }}
+    <h1>{{ .Title }}</h1>
+    {{ .Content }}
+    <div class="post-card-list">
+        {{ range .Pages }}
+        {{ .Title }}
+        <a href="{{ .RelPermalink }}">View Posts</a>
+        {{ end }}
+    </div>
+{{ end }}
