@@ -8,7 +8,7 @@ body {
     flex-direction: column;
 
     color: white;
-    background-color: var(--bg-secondary);
+    background-color: rgb(10, 10, 10);
 
     min-height: 100vh;
     margin: 0;
@@ -27,21 +27,68 @@ body {
     display: flex;
     flex-direction: column;
 
-    background-color: var(--bg-primary);
-
-    padding: 1rem;
+    background-color: black;
+    border: 2px solid rgb(30, 30, 30);
+    border-left: 0;
+    border-top: 0;
+    border-bottom: 0;
 
     align-items: center;
+}
+
+.main header nav {
 }
 
 .main header nav ul {
     display: flex;
     flex-direction: column;
 
+    gap: 0.5rem;
+
     padding: 0;
 }
 .main header nav ul li {
+    display: flex;
+
+    min-width: 200px;
+}
+.main header nav ul li a {
+    display: block;
+
+    color: white;
+    background-color: black;
+
+    border: 0px solid rgb(40, 40, 40);
+
+    text-decoration: none;
+
     list-style: none;
+    width: 100%;
+
+    padding: 0.5rem 1rem;
+
+    transition: background-color 0.25s, border 0.25s;
+}
+.main header nav ul li a:hover {
+    border: 4px solid rgb(40, 40, 40);
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 0;
+
+    background-color: rgb(20, 20, 20);
+}
+.active {
+    border: 1px solid rgb(59 130 246) !important;
+    border-left-width: 4px !important;
+
+    border-radius: 0px 5px 5px 0px !important;
+
+    margin-right: 0.5rem;
+    
+    background-color: rgb(29 78 216) !important;
+}
+.active:hover {
+    background-color: rgb(30 64 175) !important;
 }
 
 .main main {
@@ -60,11 +107,6 @@ footer {
     border-top: 1px solid #222;
 }
 
-a {
-    color: #00e;
-    text-decoration: none;
-}
-
 .post-card-list {
     display: flex;
     flex-direction: column;
@@ -78,7 +120,7 @@ a {
     border: 1px solid black;
     border-radius: 10px;
 
-    background-color: var(--bg-primary);
+    background-color: rgb(20, 20, 20);
 }
 .post-card-content {
     display: flex;
@@ -93,10 +135,17 @@ a {
     font-weight: bold;
 }
 .post-card-body {
+    display: flex;
+    flex-direction: column;
 
+    gap: 0.5rem;
 }
-.post-card-footer {
-
+.post-card-date {
+    font-style: italic;
+    font-size: 0.8rem;
+}
+.post-card-footer a {
+    color: dodgerblue;
 }
 .post-card img {
     object-fit: cover;
@@ -105,7 +154,9 @@ a {
     border-top: 0px;
     border-bottom: 0px;
     border-left: 0px;
-    border-radius: 10px 0px 0px 10px;
+    border-radius: 5px 0px 0px 5px;
+
+    margin: 4px;
 
     max-width: 200px;
 }
