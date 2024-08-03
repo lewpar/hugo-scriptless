@@ -90,6 +90,19 @@ body {
 .active:hover {
     background-color: rgb(30 64 175) !important;
 }
+.ancestor {
+    border: 1px solid rgb(59 130 246) !important;
+    border-left-width: 4px !important;
+
+    border-radius: 0px 5px 5px 0px !important;
+
+    margin-right: 0.5rem;
+    
+    background-color: rgb(29 78 216) !important;
+}
+.ancestor:hover {
+    background-color: rgb(30 64 175) !important;
+}
 
 .main main {
     flex: 1;
