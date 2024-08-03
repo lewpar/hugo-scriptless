@@ -206,9 +206,48 @@ footer {
     text-decoration: none;
 }
 
+code {
+    text-wrap: wrap;
+}
+
+@media (max-width: 811px) {
+    .post-card {
+        flex-direction: column;
+    }
+
+    .post-card img {
+        border: 1px solid black;
+        border-radius: 10px 10px 0px 0px;
+
+        max-width: 100%;
+        max-height: 128px;
+    }
+}
+
 @media (max-width: 600px) {
     .main {
         flex-direction: column;
+    }
+
+    .main header nav {
+        width: 100%;
+    }
+
+    .active {
+        border-left-width: 0px !important;
+        border-right-width: 0px !important;
+
+        border-radius: 0px !important;
+
+        margin-right: 0px;
+    }
+    .ancestor {
+        border-left-width: 0px !important;
+        border-right-width: 0px !important;
+
+        border-radius: 0px !important;
+
+        margin-right: 0px;
     }
 
     .post-card {
