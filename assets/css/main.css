@@ -178,6 +178,34 @@ footer {
     text-wrap: wrap;
 }
 
+.tags {
+    display: flex;
+    flex-direction: row;
+    
+    gap: 0.25rem;
+
+    margin: 0;
+    padding: 0;
+
+    flex-wrap: wrap;
+}
+
+.tags li {
+    list-style: none;
+
+    background-color: rgb(30, 30, 30);
+
+    border: 1px solid rgb(40, 40, 40);
+    border-radius: 5px;
+
+    padding: 0.25rem;
+}
+
+.tags li a {
+    color: dodgerblue;
+    text-decoration: none;
+}
+
 @media (max-width: 600px) {
     .main {
         flex-direction: column;

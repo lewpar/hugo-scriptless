@@ -15,8 +15,7 @@ THIS IS WHAT GETS RENDERED ON BLOG POSTS AT THE BOTTOM OF THE PAGE
 {{- with $page.GetTerms $taxonomy }}
   {{- $label := (index . 0).Parent.LinkTitle }}
   <div>
-    <div>{{ $label }}:</div>
-    <ul>
+    <ul class="tags">
       {{- range . }}
         <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
       {{- end }}

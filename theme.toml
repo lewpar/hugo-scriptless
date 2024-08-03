@@ -6,10 +6,6 @@ description = 'JavaScript Free Hugo Theme'
 # The home page of the theme, where the source can be found
 homepage = 'https://github.com/lewpar/hugo-scriptless'
 
-# Taxonomy terms
-tags = ['blog', 'company']
-features = ['some', 'awesome', 'features']
-
 # If the theme has a single author
 [author]
   name = 'lewpar'
