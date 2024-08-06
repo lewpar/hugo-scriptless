@@ -77,6 +77,24 @@ body {
 
     background-color: rgb(20, 20, 20);
 }
+
+.site-logo {
+    display: flex;
+    flex-direction: row;
+
+    gap: 0.5rem;
+
+    align-items: center;
+
+    color: white;
+    text-decoration: none;
+    
+    font-size: 1.25rem;
+
+    margin-top: 1rem;
+    margin-right: 0.5rem;
+}
+
 .active {
     border: 1px solid rgb(59 130 246) !important;
     border-left-width: 4px !important;

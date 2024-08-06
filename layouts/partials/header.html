@@ -1,6 +1,7 @@
 {{ if .Site.Params.Logo }}
-<a href="/">
+<a href="/" class="site-logo">
     <img src="{{ .Site.Params.Logo }}" width="64px" height="64px"/>
+    <div>{{ site.Title }}</div>
 </a>
 {{ else }}
 <h1>{{ .Site.Title }}</h1>
