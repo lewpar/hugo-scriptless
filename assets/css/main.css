@@ -251,6 +251,10 @@ p img {
     border-radius: 5px;
 }
 
+a {
+    color: dodgerblue;
+}
+
 @media (max-width: 811px) {
     .post-card {
         flex-direction: column;
