@@ -258,6 +258,24 @@ pre {
     border-radius: 5px;
 }
 
+pre code {
+    color: rgb(255, 255, 255);
+}
+
+p code,
+li code {
+    color: rgb(174, 232, 255);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 4px;
+
+    background-color: black;
+
+    padding: 0.2rem;
+
+    font-size: 0.75rem;
+}
+
 p img {
     max-width: 100%;
 
