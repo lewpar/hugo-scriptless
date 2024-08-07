@@ -1,12 +1,30 @@
 {{ define "main" }}
+{{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+{{ $dateHuman := .Date | time.Format ":date_long" }}
+
     <div class="post-header-container" style="background-image: url('./static/featured.png');">
         <div class="post-header" >
-            <h1>{{ .Title }}</h1>
+            <div class="post-title">{{ .Title }}</div>
 
-            Posted on
-            {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-            {{ $dateHuman := .Date | time.Format ":date_long" }}
-            <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+            {{ if .Params.author }}
+                {{ with index .Site.Params.authors .Params.author }}
+                    <div class="post-author">
+                        <img src="{{ .image }}"/>
+                        <div>
+                            <div>By {{ .name }}</div>
+                            <div class="post-date">
+                                Posted on
+                                <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+                            </div>
+                        </div>
+                    </div>
+                {{ end }}
+            {{ else }}
+                <div class="post-date">
+                    Posted on
+                    <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+                </div>
+            {{ end }}
         
             {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
         </div>
