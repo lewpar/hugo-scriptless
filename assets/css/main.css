@@ -246,6 +246,15 @@ footer {
 
     text-wrap: wrap;
 }
+.latest-posts {
+    display: flex;
+    flex-direction: row;
+
+    gap: 1rem;
+}
+.latest-posts a {
+    
+}
 
 .tags {
     display: flex;

@@ -1,3 +1,13 @@
 {{ define "main" }}
-  {{ .Content }}
+    {{ .Content }}
+    <div style="margin-bottom: 0.5rem; font-size: 1.25rem; font-weight: 600">Latest Posts</div>
+    <div class="latest-posts">
+        {{- range first 5 (where .Site.Pages "Type" "eq" "posts") -}}
+            {{ if not .IsSection }}
+                <a href="{{- .RelPermalink -}}" class="post-card">
+                    <div class="post-header">{{.Title}}</div>
+                </a>
+            {{ end }}
+        {{- end -}}
+    </div>
 {{ end }}
