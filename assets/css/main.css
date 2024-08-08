@@ -39,26 +39,31 @@ body {
 /*.main header nav {
 }*/
 
-.main header nav ul {
+.sidebar-menu {
     display: flex;
     flex-direction: column;
 
     gap: 0.5rem;
 
     padding: 0;
+
+    list-style: none;
 }
-.main header nav ul li {
+.sidebar-menu-item {
     display: flex;
 
-    min-width: 200px;
-}
-.main header nav ul li a {
-    display: block;
+    /*display: flex;
 
+    */
+}
+.sidebar-menu-item > a {
     color: white;
     background-color: black;
 
-    border: 0px solid rgb(40, 40, 40);
+    border: 4px solid black;
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 0;
 
     text-decoration: none;
 
@@ -67,9 +72,11 @@ body {
 
     padding: 0.5rem 1rem;
 
-    transition: background-color 0.25s, border 0.25s;
+    transition: background-color 0.25s;
+
+    min-width: 200px;
 }
-.main header nav ul li a:hover {
+.sidebar-menu-item > a:hover {
     border: 4px solid rgb(40, 40, 40);
     border-right: 0;
     border-top: 0;
