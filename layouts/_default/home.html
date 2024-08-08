@@ -1,12 +1,37 @@
 {{ define "main" }}
+{{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+{{ $dateHuman := .Date | time.Format ":date_long" }}
     {{ .Content }}
     <div style="margin-bottom: 0.5rem; font-size: 1.25rem; font-weight: 600">Latest Posts</div>
     <div class="latest-posts">
         {{- range first 5 (where .Site.Pages "Type" "eq" "posts") -}}
             {{ if not .IsSection }}
-                <a href="{{- .RelPermalink -}}" class="post-card">
-                    <div class="post-header">{{.Title}}</div>
-                </a>
+                <div style="background-image: url('{{- .RelPermalink -}}/static/featured.png')">
+                    <div>
+                        <h2>{{.Title}}</h2>
+                        {{ if .Params.author }}
+                        {{ with index .Site.Params.authors .Params.author }}
+                            <div class="post-author">
+                                <img src="{{ .image }}"/>
+                                <div>
+                                    <div>By {{ .name }}</div>
+                                    <div class="post-date">
+                                        Posted on
+                                        <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+                                    </div>
+                                </div>
+                            </div>
+                        {{ end }}
+                    {{ else }}
+                        <div class="post-date">
+                            Posted on
+                            <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+                        </div>
+                    {{ end }}
+                        <p>{{.Summary}}</p>
+                        <a href="{{- .RelPermalink -}}">Read more</a>
+                    </div>
+                </div>
             {{ end }}
         {{- end -}}
     </div>

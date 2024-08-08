@@ -250,10 +250,34 @@ footer {
     display: flex;
     flex-direction: row;
 
+    flex-wrap: wrap;
+
     gap: 1rem;
 }
-.latest-posts a {
-    
+.latest-posts > div {
+    flex: 1;
+
+    display: flex;
+
+    background-size: cover;
+    background-position: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+.latest-posts > div > div {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 0.5rem;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+.latest-posts > div > div > p {
+    flex: 1;
 }
 
 .tags {
