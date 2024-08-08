@@ -9,25 +9,7 @@
                 <div style="background-image: url('{{- .RelPermalink -}}/static/featured.png')">
                     <div>
                         <h2>{{.Title}}</h2>
-                        {{ if .Params.author }}
-                        {{ with index .Site.Params.authors .Params.author }}
-                            <div class="post-author">
-                                <img src="{{ .image }}"/>
-                                <div>
-                                    <div>By {{ .name }}</div>
-                                    <div class="post-date">
-                                        Posted on
-                                        <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
-                                    </div>
-                                </div>
-                            </div>
-                        {{ end }}
-                    {{ else }}
-                        <div class="post-date">
-                            Posted on
-                            <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
-                        </div>
-                    {{ end }}
+                        {{ partial "components/author.html" . }}
                         <p>{{.Summary}}</p>
                         <a href="{{- .RelPermalink -}}">Read more</a>
                     </div>
