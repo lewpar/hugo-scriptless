@@ -6,7 +6,7 @@
     <div class="latest-posts">
         {{- range first 5 (where .Site.Pages "Type" "eq" "posts") -}}
             {{ if not .IsSection }}
-                <div style="background-image: url('{{- .RelPermalink -}}/static/featured.png')">
+                <div style="background-image: url('{{- .RelPermalink -}}/static/featured.png'); min-width: 200px">
                     <div>
                         <h2>{{.Title}}</h2>
                         {{ partial "components/author.html" . }}
