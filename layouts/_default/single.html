@@ -1,15 +1,17 @@
 {{ define "main" }}
-    <div class="post-header-container" style="background-image: url('./static/featured.png');">
-        <div class="post-header" >
-            <div class="post-title">{{ .Title }}</div>
-
-            {{ partial "components/author.html" . }}
-            
-            {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+    <div class="post-container">
+        <div class="post-header-container" style="background-image: url('./static/featured.png');">
+            <div class="post-header" >
+                <div class="post-title">{{ .Title }}</div>
+    
+                {{ partial "components/author.html" . }}
+                
+                {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+            </div>
         </div>
-    </div>
-
-    <div class="post-content">
-        {{ .Content }}
+        
+        <div class="post-content">
+            {{ .Content }}
+        </div>
     </div>
 {{ end }}
