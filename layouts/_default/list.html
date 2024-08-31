@@ -16,7 +16,10 @@
                         {{ .Summary }}
                     </div>
                     <div class="post-card-footer">
-                        <div><a href="{{ .RelPermalink }}">Read more</a></div>
+                        <div style="display: flex; flex-direction: row">
+                            <div style="flex: 1">{{ partial "components/author.html" . }}</div>
+                            <a style="align-self: end" href="{{ .RelPermalink }}">Read more</a>
+                        </div>
                     </div>
                 </div>
             </div>
