@@ -265,6 +265,34 @@ footer {
 
     width: 70ch;
 }
+.post-content h2 {
+    margin: 1rem 0; 
+    padding: 0.25rem 0.5rem; 
+
+    border-left: 8px solid dodgerblue; 
+    border-radius: 2px;
+
+    background-color: rgb(30, 30, 30)
+}
+.post-content h3 {
+    margin: 1rem 0; 
+    padding: 0.25rem 0.5rem; 
+
+    border-left: 6px solid rgb(30, 255, 60); 
+    border-radius: 2px;
+    
+    background-color: rgb(30, 30, 30)
+}
+.post-content h4 {
+    margin: 1rem 0; 
+    padding: 0.25rem 0.5rem; 
+
+    border-left: 4px solid rgb(255, 101, 30); 
+    border-radius: 2px;
+    
+    background-color: rgb(30, 30, 30)
+}
+
 .latest-posts {
     display: flex;
     flex-direction: row;
