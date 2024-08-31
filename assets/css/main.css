@@ -300,39 +300,75 @@ footer {
     padding: 0 1rem;
 }
 .post-menu ul {
+    display: flex;
+    flex-direction: column;
+
+    gap: 0.25rem;
+
     top: 0;
     position: sticky;
     list-style: none;
 
     padding: 0;
+
+    max-height: 100vh;
+    overflow: auto;
+}
+.post-menu ul li {
+    transition: background-color 0.25s;
 }
 .post-menu ul li a {
-    color: dodgerblue;
     text-decoration: none;
 }
 .post-toc-1 {
+    display: flex;
     font-size: 1.25rem;
 }
-.post-toc-1::before {
-    content: '> ';
-}
 .post-toc-2 {
+    display: flex;
     font-size: 1rem;
 
-    padding-left: 0.25rem;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+
+    transition: background-color 0.25s;
 }
-.post-toc-2::before {
+.post-toc-2 a {
+    font-weight: bold;
+    color: dodgerblue;
+
+    width: 100%;
+    padding: 0.25rem;
+    border-left: 5px solid dodgerblue;
+    border-radius: 2px 0px 0px 2px;
+
+    transition: background-color 0.25s, color 0.25s;
+}
+.post-toc-2 a:hover {
+    background-color: dodgerblue;
     color: white;
-    content: '> ';
 }
 .post-toc-3 {
+    display: flex;
     font-size: 0.75rem;
 
-    padding-left: 0.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.25rem;
 }
-.post-toc-3::before {
-    color: white;
-    content: '> ';
+.post-toc-3 a {
+    color: dodgerblue;
+
+    width: 100%;
+    padding: 0.25rem;
+
+    border-left: 4px solid lime;
+    border-radius: 2px 0px 0px 2px;
+
+    transition: background-color 0.25s, color 0.25s;
+}
+.post-toc-3 a:hover {
+    color: black;
+    background-color: lime;
 }
 
 .latest-posts {
