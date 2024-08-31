@@ -257,7 +257,7 @@ footer {
     margin-top: 1rem;
     padding: 1rem;
 
-    text-wrap: wrap;
+    word-break: break-all;
 }
 .post-content h2 {
     margin: 1rem 0; 
@@ -484,10 +484,6 @@ a {
     }
 
     .post-header-container {
-        width: unset;
         padding: unset;
-    }
-    .post-content {
-        width: unset;
     }
 }
