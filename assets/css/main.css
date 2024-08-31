@@ -257,6 +257,9 @@ footer {
     margin-top: 1rem;
     padding: 1rem;
 
+    word-wrap: break-word;
+}
+.post-content a {
     word-break: break-all;
 }
 .post-content h2 {
