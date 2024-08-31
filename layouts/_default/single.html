@@ -9,9 +9,54 @@
                 {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
             </div>
         </div>
-        
-        <div class="post-content">
-            {{ .Content }}
+
+        <div style="display: flex; flex-direction: row">
+            <nav class="post-menu">
+                <!-- CREDITS TO: https://discourse.gohugo.io/t/splitting-content-into-sections-based-on-header-level/33749/6 -->
+                {{ $chunks := slice }}
+
+                {{ range (findRE `(?s)<!-- begin-chunk.+?(?:<!-- end-chunk -->|$)` .Content) }}
+                {{ $anchor := replaceRE `(?s).+data-anchor="(.+?)".+` "$1" . }}
+                {{ $heading := replaceRE `(?s).+data-heading="(.+?)".+` "$1" . }}
+                {{ $level := replaceRE `(?s).+data-level="(.+?)".+` "$1" . }}
+                {{ $permalink := replaceRE `(?s).+data-permalink="(.+?)".+` "$1" . }}
+                {{ $title := replaceRE `(?s).+data-title="(.+?)".+` "$1" . }}
+
+                {{/* Result includes heading. */}}
+                {{ $content := replaceRE `(?s)<!-- begin-chunk.+?-->(.+?)(?:<!-- end-chunk -->|$)` "$1" . }}
+                {{/* Remove heading. */}}
+                {{ $content = replaceRE `(?s)<h\d.*?>.*</h\d>(.+)` "$1" $content }}
+                {{/* Remove leading and trailing newlines. */}}
+                {{ $content = trim $content "\n" }}
+
+                {{ $chunks = $chunks | append (dict
+                    "anchor" $anchor
+                    "content" $content
+                    "heading" $heading
+                    "level" (int $level)
+                    "permalink" $permalink
+                    "title" $title
+                    )
+                }}
+                {{ end }}
+                <ul>
+                    <h2>
+                        Table of Contents
+                    </h2>
+                {{ range $chunks }}
+                    <!-- Only include headers level 1-3 -->
+                    {{ if le .level 3 }}
+                        <li class="post-toc-{{ .level }}">
+                            <a href="#{{ .anchor }}">{{ htmlUnescape .heading }}</a>
+                        </li>
+                    {{ end }}
+                {{ end }}
+                </ul>
+            </nav>
+
+            <div class="post-content">
+                {{ .Content }}
+            </div>
         </div>
     </div>
 {{ end }}

@@ -1,0 +1,4 @@
+<!-- CREDITS TO: https://discourse.gohugo.io/t/splitting-content-into-sections-based-on-header-level/33749/6 -->
+{{ printf "<!-- end-chunk -->" | safeHTML }}
+{{ printf "<!-- begin-chunk data-anchor=%q data-heading=%q data-level=%q data-permalink=%q data-title=%q -->" .Anchor .Text (string .Level) .Page.Permalink .Page.Title | safeHTML }}
+<h{{ .Level }} id="{{ .Anchor | safeURL }}">{{ .Text | safeHTML }}</h{{ .Level }}>
