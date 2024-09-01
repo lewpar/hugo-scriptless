@@ -6,3 +6,9 @@ module:
   hugoVersion:
     extended: false
     min: 0.116.0
+
+params:
+  authors:
+    anonymous:
+      name: Anonymous
+      image: /images/anonymous.png
