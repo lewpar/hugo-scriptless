@@ -2,27 +2,26 @@
 {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
 {{ $dateHuman := .Date | time.Format ":date_long" }}
 
-    <h1>{{ .Title }}</h1>
+    <h2>{{ .Title }}</h2>
     {{ .Content }}
     <div class="post-card-list">
         {{ range .Pages }}
-            <div class="post-card">
+            <a class="post-card" href="{{ .RelPermalink }}">
                 <img src="{{ .RelPermalink }}{{ .Params.featured }}"/>
                 <div class="post-card-content">
                     <div class="post-card-header">
                         {{ .Title }}
                     </div>
+                    <div class="post-card-author">
+                        {{ partial "components/author.html" . }}
+                        <span>&#x2022;</span>
+                        <span>{{ .Params.Category }}</span>
+                    </div>
                     <div class="post-card-body">
                         {{ .Summary }}
                     </div>
-                    <div class="post-card-footer">
-                        <div style="display: flex; flex-direction: row">
-                            <div style="flex: 1">{{ partial "components/author.html" . }}</div>
-                            <a style="align-self: end" href="{{ .RelPermalink }}">Read more</a>
-                        </div>
-                    </div>
                 </div>
-            </div>
+            </a>
         {{ end }}
     </div>
 {{ end }}
