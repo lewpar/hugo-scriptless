@@ -1,21 +1,32 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 
-{{ if .Title }}
-    <meta name="title" content="{{ .Title }}">
-    <meta property="og:title" content="{{ .Title }}" />
-    <meta property="twitter:title" content="{{ .Title }}" />
+{{ if .Params.Title }}
+    <meta name="title" content="{{ .Params.Title }}" />
+    <meta property="og:title" content="{{ .Params.Title }}" />
+    <meta property="twitter:title" content="{{ .Params.Title }}" />
+{{ else }}
+    <meta name="title" content="{{ .Site.Title }}" />
+    <meta property="og:title" content="{{ .Site.Title }}" />
+    <meta property="twitter:title" content="{{ .Site.Title }}" />
 {{ end }}
 
 {{ if .Params.Summary }}
-    <meta name="description" content="{{ .Params.Summary }}">
+    <meta name="description" content="{{ .Params.Summary }}" />
     <meta property="og:description" content="{{ .Params.Summary }}" />
     <meta property="twitter:description" content="{{ .Params.Summary }}" />
+{{ else }}
+    <meta name="description" content="{{ .Site.Params.Summary }}" />
+    <meta property="og:description" content="{{ .Site.Params.Summary }}" />
+    <meta property="twitter:description" content="{{ .Site.Params.Summary }}" />
 {{ end }}
 
 {{ if .Params.Featured }}
     <meta property="og:image" content="{{ path.Join .Permalink .Params.Featured }}" />
     <meta property="twitter:image" content="{{ path.Join .Permalink .Params.Featured }}" />
+{{ else }}
+    <meta property="og:image" content="{{ path.Join .Permalink .Site.Params.Logo }}" />
+    <meta property="twitter:image" content="{{ path.Join .Permalink .Site.Params.Logo }}" />
 {{ end }}
 
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
