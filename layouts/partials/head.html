@@ -1,5 +1,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
+
+{{ if .Title }}
+    <meta name="title" content="{{ .Title }}">
+    <meta property="og:title" content="{{ .Title }}" />
+    <meta property="twitter:title" content="{{ .Title }}" />
+{{ end }}
+
+{{ if .Params.Summary }}
+    <meta name="description" content="{{ .Params.Summary }}">
+    <meta property="og:description" content="{{ .Params.Summary }}" />
+    <meta property="twitter:description" content="{{ .Params.Summary }}" />
+{{ end }}
+
+{{ if .Params.Featured }}
+    <meta property="og:image" content="{{ path.Join .Permalink .Params.Featured }}" />
+    <meta property="twitter:image" content="{{ path.Join .Permalink .Params.Featured }}" />
+{{ end }}
+
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
 {{ partialCached "head/css.html" . }}
 <link rel="icon" type="image/x-icon" href="{{ .Site.Params.Logo }}">
